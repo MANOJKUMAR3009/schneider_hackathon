@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Zap, Thermometer, Settings, LogOut, Leaf } from 'lucide-react';
+import { LayoutDashboard, Zap, Thermometer, Settings, LogOut, Leaf, Users, AlertTriangle, TrendingDown } from 'lucide-react';
 import './Sidebar.css';
 
 const Sidebar = () => {
@@ -20,21 +20,37 @@ const Sidebar = () => {
             <LayoutDashboard size={20} />
             <span>Overview</span>
           </NavLink>
-          <NavLink to="/energy" className="nav-item">
-            <Zap size={20} />
-            <span>Energy Analytics</span>
+          <NavLink to="/occupancy-ml" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+            <Users size={20} />
+            <span>Occupancy ML</span>
           </NavLink>
-          <NavLink to="/hvac" className="nav-item">
+          <NavLink to="/energy-prediction" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+            <Zap size={20} />
+            <span>Energy Prediction</span>
+          </NavLink>
+          <NavLink to="/fdd" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+            <AlertTriangle size={20} />
+            <span>FDD</span>
+          </NavLink>
+          <NavLink to="/optimization" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+            <Settings size={20} />
+            <span>Optimization</span>
+          </NavLink>
+          <NavLink to="/digital-twin" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+            <LayoutDashboard size={20} />
+            <span>Digital Twin</span>
+          </NavLink>
+          <NavLink to="/climate-zone" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
             <Thermometer size={20} />
-            <span>HVAC Control</span>
+            <span>Climate-Zone Logic</span>
+          </NavLink>
+          <NavLink to="/savings" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+            <TrendingDown size={20} />
+            <span>Savings Calc</span>
           </NavLink>
         </div>
         
         <div className="nav-group mt-auto">
-          <NavLink to="/settings" className="nav-item">
-            <Settings size={20} />
-            <span>Settings</span>
-          </NavLink>
           <NavLink to="/login" className="nav-item logout">
             <LogOut size={20} />
             <span>Sign Out</span>
